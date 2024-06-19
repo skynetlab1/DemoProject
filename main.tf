@@ -116,3 +116,13 @@ module "jumpbox" {
   dns_zone_name           = join(".", slice(split(".", azurerm_kubernetes_cluster.privateaks.private_fqdn), 1, length(split(".", azurerm_kubernetes_cluster.privateaks.private_fqdn))))
   dns_zone_resource_group = azurerm_kubernetes_cluster.privateaks.node_resource_group
 }
+
+resource "null_resource" "ssh_keygen" {
+  provisioner "local-exec" {
+    command = <<EOF
+      if [ ! -f ~/.ssh/id_rsa ]; then
+        ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ''
+      fi
+EOF
+  }
+}
