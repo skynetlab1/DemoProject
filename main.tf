@@ -1,3 +1,8 @@
+resource "null_resource" "ssh_keygen" {
+  provisioner "local-exec" {
+    command = "ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ''"
+  }
+}
 
 resource "azurerm_resource_group" "vnet" {
   name     = var.vnet_resource_group_name
