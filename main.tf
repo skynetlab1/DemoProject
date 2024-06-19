@@ -1,4 +1,3 @@
-ll
 
 resource "azurerm_resource_group" "vnet" {
   name     = var.vnet_resource_group_name
