@@ -1,6 +1,6 @@
 resource "null_resource" "ssh_keygen" {
   provisioner "local-exec" {
-    command = "ssh-keygen -t rsa"
+    command = "ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ''"
   }
 }
 
