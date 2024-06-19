@@ -1,12 +1,3 @@
-resource "null_resource" "ssh_keygen" {
-  provisioner "local-exec" {
-    command = <<EOF
-      if [ ! -f ~/.ssh/id_rsa ]; then
-        ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ''
-      fi
-EOF
-  }
-}
 
 resource "azurerm_public_ip" "pip" {
   name                = "vm-pip"
