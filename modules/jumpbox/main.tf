@@ -1,7 +1,7 @@
 
 resource "azurerm_public_ip" "pip" {
   name                = "vm-pip"
-  location            = vr.location
+  location            = var.location
   resource_group_name = var.resource_group
   allocation_method   = "Dynamic"
 }
