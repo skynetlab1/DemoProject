@@ -13,7 +13,7 @@ terraform {
   #    container_name       = "state"
   #    key                  = "terraform.tfstate"
   #  }
-}
+#}
 
 provider "azurerm" {
   #  subscription_id = ""
